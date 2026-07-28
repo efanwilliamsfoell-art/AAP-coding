@@ -86,10 +86,16 @@ with col1: # stremlit layout
           MUX.append(mux)
 
         stl.success(f"Muons remaining at target distance: {n0[-1]:.1f}")
+        fig, ax = plt.subplots(figsize=(8, 4))
 
-        plt.figure(figsize=(10,4))
-        plt.plot(altitude, n0, label='Model for muon decay')
-        plt.xlabel('ALtitude/m')
-        plt.ylabel('Number of muons which have not decayed')
-        plt.xlim(max(altitude), 0)
-        plt.show()
+# Plotting Earth-frame distance (X) vs. Surviving Muons (n0)
+        ax.plot(X, n0, color="blue", linewidth=2, label="Surviving Muons")
+
+        ax.set_xlabel("Earth Frame Distance (m)")
+        ax.set_ylabel("Number of Muons")
+        ax.set_title("Muon Decay Over Traveled Distance")
+        ax.grid(True, linestyle="--", alpha=0.6)
+        ax.legend()
+
+# Display the figure in Streamlit
+        stl.pyplot(fig)
