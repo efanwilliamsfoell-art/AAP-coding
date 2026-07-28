@@ -13,7 +13,7 @@ if stl.button("Calculate Surviving Muons"):
   mrest = 1.88353*10**(-28) #rest mass of a muon
   c = 2.99792*10**8 #speed of light in a vacuum
   v0 = 0.9952*c
-  dx = 0.001
+  dx = 0.01
   Lorentz_factor0 = 1/(np.sqrt(1-(v0)**2/c**2))
   mulifetime = 2.19698*10**(-6)
   E0 = Lorentz_factor0*mrest*c**2
@@ -65,5 +65,5 @@ if stl.button("Calculate Surviving Muons"):
     X.append(x)
     n0.append(N0)
 
-stl.success('Muons remaining at target distance:', n0[-1])
+  stl.success(f"Muons remaining at target distance: {n0[-1]:.1f}")
 
