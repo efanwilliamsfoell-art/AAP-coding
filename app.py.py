@@ -65,9 +65,5 @@ if stl.button("Calculate Surviving Muons"):
     X.append(x)
     n0.append(N0)
 
-
-
-print('muons left at sea level:', n0[-1])
-
 stl.success(f"Muons remaining at target distance: **{n0[-1]:.1f}**")
 
