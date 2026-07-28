@@ -3,16 +3,16 @@ import numpy as np
 
 import streamlit as stl
 
-N0 = stl.number_input("Initial Number of Muons (N0):", value=563)
+N0_input = stl.number_input("Initial Number of Muons (N0):", value=563)
 initial_v_ratio = stl.number_input("Initial Speed (as fraction of c):", value=0.9952, format="%.4f")
 altitude_m = stl.number_input("Travel Distance / Altitude (meters):", value=1917.0)
 
 if stl.button("Calculate Surviving Muons"):
-  N0 = 563
-  alt= 1907 #altitude at Mt. Washington
+  N0 = N0_input
+  alt= altitude_m #altitude at Mt. Washington
   mrest = 1.88353*10**(-28) #rest mass of a muon
   c = 2.99792*10**8 #speed of light in a vacuum
-  v0 = 0.9952*c
+  v0 = initial_v_ratio
   dx = 0.01
   Lorentz_factor0 = 1/(np.sqrt(1-(v0)**2/c**2))
   mulifetime = 2.19698*10**(-6)
