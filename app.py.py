@@ -1,8 +1,6 @@
 # while loop (total number of muons)
 import numpy as np
 
-!pip install streamlit
-
 import streamlit as stl
 
 N0 = stl.number_input("Initial Number of Muons (N0):", value=563)
