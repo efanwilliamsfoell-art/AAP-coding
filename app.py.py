@@ -3,7 +3,7 @@ import numpy as np
 
 import streamlit as stl
 
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 # Create a narrow column (ratio 1) and an empty wide space (ratio 3)
 col1, _ = stl.columns([1, 3])
