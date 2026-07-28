@@ -87,14 +87,16 @@ with col1: # stremlit layout
 
 import pandas as pd
 import streamlit as st
+import plotly.express as px
 
-# Create sample data
-data = pd.DataFrame({
-    "Distance (m)": [0, 500, 1000, 1500, 1907],
-    "Muons Remaining": [563, 520, 480, 440, 408]
-})
+# --- OUTSIDE / AFTER THE WHILE LOOP ---
 
-# Render line chart (interactive hover included automatically)
-st.line_chart(data.set_index("Distance (m)"))
+fig = px.line(
+    x=X, 
+    y=n0, 
+    labels={"x": "Distance Traveled (m)", "y": "Surviving Muons"},
+    title="Interactive Muon Decay Plot"
+)
 
+stl.plotly_chart(fig, use_container_width=True)
 
