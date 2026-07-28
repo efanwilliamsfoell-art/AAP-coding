@@ -36,9 +36,11 @@ with col1: # stremlit layout
         Mu = 1*10**(-3)#molar mass constant
         
         x = 0 # intial value of x
-  
+        mux = 0
+        
+        MUX = [mux] #list for the distance the Earth moves toward the muon
         n0 = [N0] #list for number of muons left
-        X = [x]
+        X = [x]#list for distance
       
         while x < alt:
       
@@ -64,6 +66,8 @@ with col1: # stremlit layout
           #updating distance and time  
           dt = dx/vmean
           x += dx
+          mu_step = dx/Lorentz_factormean
+          mux += mu_step
 
           #decay of muons in given time  
           Nt = N0*np.exp(-dt/(Lorentz_factormean*mulifetime))
@@ -77,8 +81,22 @@ with col1: # stremlit layout
           #recording values for graphing  
           X.append(x)
           n0.append(N0)
+          MUX.append(mux)
 
         stl.success(f"Muons remaining at target distance: {n0[-1]:.1f}")
-  #
+  #plotting graphs
+import plotly.express as px
+import streamlit as st
+
+# Create interactive figure
+fig = px.line(
+    x=[0, 500, 1000, 1500, 1907], 
+    y=[563, 520, 480, 440, 408],
+    labels={"x": "Distance (m)", "y": "Muons Remaining"},
+    title="Interactive Muon Decay"
+)
+
+# Display in Streamlit (use_container_width fills the column)
+st.plotly_chart(fig, use_container_width=True)
 
 
