@@ -3,6 +3,8 @@ import numpy as np
 
 import streamlit as stl
 
+import plotly.express as px
+
 # Create a narrow column (ratio 1) and an empty wide space (ratio 3)
 col1, _ = stl.columns([1, 3])
 
@@ -85,7 +87,6 @@ with col1: # stremlit layout
 
         stl.success(f"Muons remaining at target distance: {n0[-1]:.1f}")
 
-import plotly.express as px
 
 fig = px.line(
     x=X, 
