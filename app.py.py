@@ -3,7 +3,7 @@ import numpy as np
 
 import streamlit as stl
 
-import plotly.express as px
+import matplotlib as plt
 
 # Create a narrow column (ratio 1) and an empty wide space (ratio 3)
 col1, _ = stl.columns([1, 3])
@@ -87,10 +87,9 @@ with col1: # stremlit layout
 
         stl.success(f"Muons remaining at target distance: {n0[-1]:.1f}")
 
-        fig = px.line(
-            x = X, 
-            y =n0, 
-            labels={"x": "Distance Traveled (m)", "y": "Surviving Muons"},
-            title="Interactive Muon Decay Plot"
-        )
-        stl.plotly_chart(fig, use_container_width=True)
+        plt.figure(figsize=(10,4))
+        plt.plot(altitude, n0, label='Model for muon decay')
+        plt.xlabel('ALtitude/m')
+        plt.ylabel('Number of muons which have not decayed')
+        plt.xlim(max(altitude), 0)
+        plt.show()
