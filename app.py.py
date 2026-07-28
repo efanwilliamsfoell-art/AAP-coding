@@ -85,8 +85,6 @@ with col1: # stremlit layout
 
         stl.success(f"Muons remaining at target distance: {n0[-1]:.1f}")
 
-$pip install plotly
-
 import plotly.express as px
 
 fig = px.line(
