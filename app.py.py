@@ -12,7 +12,7 @@ if stl.button("Calculate Surviving Muons"):
   alt= altitude_m #altitude at Mt. Washington
   mrest = 1.88353*10**(-28) #rest mass of a muon
   c = 2.99792*10**8 #speed of light in a vacuum
-  v0 = initial_v_ratio
+  v0 = initial_v_ratio * c
   dx = 0.01
   Lorentz_factor0 = 1/(np.sqrt(1-(v0)**2/c**2))
   mulifetime = 2.19698*10**(-6)
