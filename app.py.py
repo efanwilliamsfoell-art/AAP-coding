@@ -14,11 +14,11 @@ with col1: # stremlit layout
     if stl.button("Calculate Surviving Muons"): #if that button is pressed
         N0 = N0_input 
         alt= altitude_m 
+        c = 2.99792*10**8 #speed of light in a vacuum (because it has to be before v0
         v0 = initial_v_ratio * c #variables on website
 
         
         mrest = 1.88353*10**(-28) #rest mass of a muon
-        c = 2.99792*10**8 #speed of light in a vacuum
         dx = 0.01 # each step of distance
         Lorentz_factor0 = 1/(np.sqrt(1-(v0)**2/c**2))
         mulifetime = 2.19698*10**(-6) #average muon lifetime
