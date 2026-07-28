@@ -6,8 +6,7 @@ import streamlit as stl
 import matplotlib.pyplot as plt
 
 stl.set_page_config(
-    page_title="Muon Decay Simulation",
-    page_icon="⚛️",
+    page_title="Cosmic ray muon decay",
     layout="wide"  # <-- This spreads the app to fill the entire screen width
 )
 # 2. Create 2 side-by-side columns 
@@ -25,8 +24,6 @@ with col1:
 with col2:
     stl.subheader("Simulation Results")
     
-    # Run simulation & plot here...
-    # stl.plotly_chart(fig, use_container_width=True)
 
     if stl.button("Calculate Surviving Muons"): #if that button is pressed
         N0 = N0_input 
