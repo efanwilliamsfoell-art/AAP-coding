@@ -69,7 +69,7 @@ with col1:
           X.append(x)
           n0.append(N0)
 
-    stl.success(f"Muons remaining at target distance: {n0[-1]:.1f}")
+        stl.success(f"Muons remaining at target distance: {n0[-1]:.1f}")
   #
 
 
