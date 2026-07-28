@@ -5,13 +5,28 @@ import streamlit as stl
 
 import matplotlib.pyplot as plt
 
-# Create a narrow column (ratio 1) and an empty wide space (ratio 3)
-col1, _ = stl.columns([1, 3])
+stl.set_page_config(
+    page_title="Muon Decay Simulation",
+    page_icon="⚛️",
+    layout="wide"  # <-- This spreads the app to fill the entire screen width
+)
+# 2. Create 2 side-by-side columns 
+# [1, 2] means col1 takes 1/3 of screen width, col2 takes 2/3
+col1, col2 = stl.columns([1, 2])
 
-with col1: # stremlit layout
+# 3. YOUR SNIPPET (Left Side: Inputs & Controls)
+with col1:
+    stl.subheader("Simulation Inputs")
     N0_input = stl.number_input("Initial Number of Muons (N0):", value=563)
     initial_v_ratio = stl.number_input("Initial Speed (as fraction of c):", value=0.9952, format="%.4f")
     altitude_m = stl.number_input("Travel Distance / Altitude (metres):", value=1917.0)
+
+# 4. Right Side: Results & Graphs (Stretches across remaining space)
+with col2:
+    stl.subheader("Simulation Results")
+    
+    # Run simulation & plot here...
+    # stl.plotly_chart(fig, use_container_width=True)
 
     if stl.button("Calculate Surviving Muons"): #if that button is pressed
         N0 = N0_input 
