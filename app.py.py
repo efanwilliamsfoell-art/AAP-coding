@@ -85,17 +85,16 @@ with col1: # stremlit layout
 
         stl.success(f"Muons remaining at target distance: {n0[-1]:.1f}")
 
-import matplotlib.pyplot as plt
+import pandas as pd
+import streamlit as st
 
-# 1. Create Matplotlib figure and axis
-fig, ax = plt.subplots()
-ax.plot([0, 500, 1000, 1500, 1907], [563, 520, 480, 440, 408], color="blue", linewidth=2)
-ax.set_xlabel("Distance (m)")
-ax.set_ylabel("Muons")
-ax.set_title("Muon Decay Curve")
-ax.grid(True)
+# Create sample data
+data = pd.DataFrame({
+    "Distance (m)": [0, 500, 1000, 1500, 1907],
+    "Muons Remaining": [563, 520, 480, 440, 408]
+})
 
-# 2. Display in Streamlit
-st.pyplot(fig)
+# Render line chart (interactive hover included automatically)
+st.line_chart(data.set_index("Distance (m)"))
 
 
