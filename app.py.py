@@ -18,7 +18,7 @@ with col1:
     stl.subheader("Simulation Inputs")
     N0_input = stl.number_input("Initial Number of Muons (N0):", value=563)
     initial_v_ratio = stl.number_input("Initial Speed (as fraction of c):", value=0.9952, format="%.4f")
-    altitude_m = stl.number_input("Travel Distance / Altitude (metres):", value=1917.0)
+    altitude_m = stl.number_input("Travel Distance / Altitude (metres):", value=1907.0)
 
 # 4. Right Side: Results & Graphs (Stretches across remaining space)
 with col2:
