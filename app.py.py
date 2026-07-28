@@ -87,13 +87,11 @@ with col1: # stremlit layout
 
         stl.success(f"Muons remaining at target distance: {n0[-1]:.1f}")
 
+        fig = px.line(
+        xaxis = X, 
+        yaxis =n0, 
+        labels={"x": "Distance Traveled (m)", "y": "Surviving Muons"},
+        title="Interactive Muon Decay Plot"
+        )
 
-fig = px.line(
-    x=X, 
-    y=n0, 
-    labels={"x": "Distance Traveled (m)", "y": "Surviving Muons"},
-    title="Interactive Muon Decay Plot"
-)
-
-stl.plotly_chart(fig, use_container_width=True)
-
+        stl.plotly_chart(fig, use_container_width=True)
