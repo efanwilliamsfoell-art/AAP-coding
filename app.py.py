@@ -83,7 +83,7 @@ with col2:
           #updating distance and time  
           dt = dx/vmean
           x += dx
-          mu_step = dx/Lorentz_factormean
+          mu_step = dx/gammamean
           mux += mu_step
 
           #decay of muons in given time  
