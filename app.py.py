@@ -32,22 +32,23 @@ with col2:
         v0 = initial_v_ratio * c #variables on website
 
         
-        mrest = 1.88353*10**(-28) #rest mass of a muon
+        mrest = 105.65837 #rest mass of a muon in MeV
         dx = 0.01 # each step of distance
-        Lorentz_factor0 = 1/(np.sqrt(1-(v0)**2/c**2))
+        gammma0 = 1/(np.sqrt(1-(v0)**2/c**2))
         mulifetime = 2.19698*10**(-6) #average muon lifetime
-        E0 = Lorentz_factor0*mrest*c**2 # original total energy (relativistic)
+        E0 = gamma0*mrest # original total energy (relativistic)
         pi = np.pi #the number pi
-        me = 9.10938*10**(-31) # electron mass
+        me = 0.51099895 # electron mass in MeV 
         e = 1.60218*10**(-19) #electron charge
         e0 = 8.85419*10**(-12) #vacuum pemittivity
         Na = 6.022141*10**(23) #avogadro's number
         Z = 7.23 #average atomic number of dry air
         z = -1 #charge of muon in multiples of electron charge
-        I = 10*Z*e #Mean excitation energy, I, for air in the atmosphere
+        I = 85.7*10**(-6) #Mean excitation energy, I, for air in the atmosphere
         p = 1.225 #air density
         A = 28.96 #average atomic mass of the air
         Mu = 1*10**(-3)#molar mass constant
+        K = 0.307075 # units are MeV /mol cm^2
         
         x = 0 # intial value of x
         mux = 0
@@ -57,24 +58,26 @@ with col2:
         X = [x]#list for distance
       
         while x < alt:
-      
-          n = (Na*Z*p)/(A*Mu) #
-          B = v0/c
+          M = gamma0*mrest #relativistic mass
+  
+          #figuring out maximum energy lost in a single collision
+          Bsquared = 1 - 1/(gamma0**2)
+          r = me/mrest # ratio of rest mass to electron mass
+          numerator = 2*me*Bsquared*gamma0**2
+          denominator = 1 + 2*gamma0*r + r**2
+          Wmax = numerator/denominator
+          SP1 = K*z**2*Z/(A*Bsquared)
+          SP2 = 0.5*np.log(2*me*Bsquared*gamma0**2*Wmax/I**2) - Bsquared
 
-          #Bethe bloch energy change
-          BB1 = 4*pi/(me*c**2)
-          BB2 = n*z**2/(B)**2
-          BB3 = (e**2/(4*pi*e0))**2
-          BB4 = np.log((2*me*c**2*B**2)/(I*(1-(v0/c)**2))) - (v0/c)**2  
-          de = BB1*BB2*BB3*BB4*dx
+          de = SP1*SP2*p*(dx*100)
           E = E0 - de
       
     #Lorentz factor calculations
-          Lorentz_factor1 = E/(mrest*c**2)
-          Lorentz_factormean = (Lorentz_factor0 + Lorentz_factor1)/2
+          gamma1 = E/(mrest)
+          gammamean = (gamma0 + gamma1)/2
 
           #Velocity calculations  
-          v1 = c*np.sqrt(1 - (mrest*c**2/E)**2)        
+          v1 = c*np.sqrt(1 - (mrest/E)**2)        
           vmean= (v0 + v1)/2
 
           #updating distance and time  
@@ -84,12 +87,12 @@ with col2:
           mux += mu_step
 
           #decay of muons in given time  
-          Nt = N0*np.exp(-dt/(Lorentz_factormean*mulifetime))
+          Nt = N0*np.exp(-dt/(gammamean*mulifetime))
 
           #resetting cycle  
           E0 = E
           v0 = v1
-          Lorentz_factor0 = Lorentz_factor1
+          gamma0 = gamma1
           N0 = Nt
 
           #recording values for graphing  
