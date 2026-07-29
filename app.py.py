@@ -98,7 +98,7 @@ with col2:
           MUX.append(mux)
 
         stl.success(f"Muons remaining at target distance: {n0[-1]:.1f}")
-        stl.success(f"Distance the muons feel they travelled: {MUX[-1]:.1f}")
+        stl.success(f"Distance the muons feel they travelled in metres: {MUX[-1]:.1f}")
         fig, ax = plt.subplots(figsize=(8, 4))
 
 # Plotting Earth-frame distance (X) vs. Surviving Muons (n0)
