@@ -34,7 +34,7 @@ with col2:
         
         mrest = 105.65837 #rest mass of a muon in MeV
         dx = 0.01 # each step of distance
-        gammma0 = 1/(np.sqrt(1-(v0)**2/c**2))
+        gamma0 = 1/(np.sqrt(1-(v0)**2/c**2))
         mulifetime = 2.19698*10**(-6) #average muon lifetime
         E0 = gamma0*mrest # original total energy (relativistic)
         pi = np.pi #the number pi
