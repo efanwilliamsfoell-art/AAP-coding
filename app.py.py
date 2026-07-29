@@ -45,7 +45,7 @@ with col2:
         Z = 7.23 #average atomic number of dry air
         z = -1 #charge of muon in multiples of electron charge
         I = 85.7*10**(-6) #Mean excitation energy, I, for air in the atmosphere
-        p = 1.225 #air density
+        p = 0.001225 #air density at sea level in g/cm^3
         A = 28.96 #average atomic mass of the air
         Mu = 1*10**(-3)#molar mass constant
         K = 0.307075 # units are MeV /mol cm^2
