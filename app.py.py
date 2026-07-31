@@ -113,7 +113,7 @@ with col2:
           MUX.append(mux)
           n0clas.append(N0clas)
 
-        stl.success(f"Muons remaining at target distance: {n0[-1]:1f}")
+        stl.success(f"Muons remaining at target distance: {n0[-1]:.0f}")
         stl.success(f"Distance the muons feel earth travelled towards them (metres): {MUX[-1]:.1f}")
         fig, ax = plt.subplots(figsize=(8, 4))
 
