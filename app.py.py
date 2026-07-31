@@ -5,10 +5,8 @@ import streamlit as stl
 
 import matplotlib.pyplot as plt
 
-stl.set_page_config(
-    page_title="Cosmic ray muon decay",
-    layout="wide"  # <-- This spreads the app to fill the entire screen width
-)
+stl.set_page_config(page_title="Cosmic ray muon decay",layout="wide")  # <-- This spreads the app to fill the entire screen width
+
 # 2. Create 2 side-by-side columns 
 # [1, 2] means col1 takes 1/3 of screen width, col2 takes 2/3
 col1, col2 = stl.columns([1, 2])
@@ -61,7 +59,8 @@ with col2:
         mux = 0
         
         MUX = [mux] #list for the distance the Earth moves toward the muon
-        n0 = [N0] #list for number of muons left
+        n0 = [N0] #list for number of muons left (relativity)
+        n0clas = [N0clas]
         X = [x]#list for distance
       
         while x < alt:
@@ -97,25 +96,29 @@ with col2:
           mux += mu_step
 
           #decay of muons in given time  
-          Nt = N0*np.exp(-dt/(gammamean*mulifetime))
+          Ntrel = N0*np.exp(-dt/(gammamean*mulifetime))
+          Nclas = N0clas*exp(-dt/mulifetime)
 
           #resetting cycle  
           E0 = E
           v0 = v1
           gamma0 = gamma1
-          N0 = Nt
+          N0 = Ntrel
+          N0clas = Nclas
 
           #recording values for graphing  
           X.append(x)
           n0.append(N0)
           MUX.append(mux)
+          n0clas.append(N0clas)
 
         stl.success(f"Muons remaining at target distance: {n0[-1]:.1f}")
         stl.success(f"Distance the muons feel earth travelled towards them: {MUX[-1]:.1f}")
         fig, ax = plt.subplots(figsize=(8, 4))
 
 # Plotting Earth-frame distance (X) vs. Surviving Muons (n0)
-        ax.plot(X, n0, color="blue", linewidth=2, label="Surviving Muons")
+        ax.plot(X, n0, color="blue", linewidth=2, label="Relativistic model")
+        ax.plot(X, n0clas, color ="red", linewidth=2, label="Classical model")
 
         ax.set_xlabel("Earth Frame Distance (m)")
         ax.set_ylabel("Number of Muons")
