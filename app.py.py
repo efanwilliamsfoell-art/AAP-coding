@@ -121,7 +121,7 @@ with col2:
         exp_y = [563, 408]  # Measured counts
         exp_yerr = [10, 9]  # Reported uncertainties
 
-        ax.errorbar(exp_x, exp_y, yerr=exp_yerr, fmt="ko", capsize=5, capthick=1.5, markersize=6,label="Real data",)
+        ax.errorbar(exp_x, exp_y, yerr=exp_yerr, fmt="ko", capsize=5, capthick=1.0, markersize=4,label="Real data",)
 
 # Plotting Earth-frame distance (X) vs. Surviving Muons (n0)
         ax.plot(X, n0, color="blue", linewidth=2, label="Relativistic model")
