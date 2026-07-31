@@ -49,6 +49,13 @@ with col2:
         A = 28.966 #average atomic mass of the air
         Mu = 1*10**(-3)#molar mass constant
         K = 0.307075 # units are MeV /mol cm^2
+
+        p0 = 1.225 # air density at sea level in kg/m^3
+        L = 0.0065 #temperature lapse rate K/m
+        T0 = 288.15 # temperature at sea level
+        R = 8.31446 # ideal gas constant J/(mol·K)
+        g = 9.80665 # gravitational acceleration
+        m = A/1000 # average atomic mass of dry air in kg/mol
         
         x = 0 # intial value of x
         mux = 0
@@ -69,7 +76,9 @@ with col2:
           SP1 = K*z**2*Z/(A*Bsquared)
           SP2 = 0.5*np.log(2*me*Bsquared*gamma0**2*Wmax/I**2) - Bsquared
 
-          de = SP1*SP2*p*(dx*100)
+          p = p0*(1- (L*h)/T0)**(g*m/(R*L) - 1) #pressure at each altitude
+
+          de = SP1*SP2*(dx*100)*p/1000
           E = E0 - de
       
     #Lorentz factor calculations
