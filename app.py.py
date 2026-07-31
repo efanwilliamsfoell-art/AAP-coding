@@ -15,14 +15,14 @@ col1, col2 = stl.columns([1, 2])
 
 # 3. YOUR SNIPPET (Left Side: Inputs & Controls)
 with col1:
-    stl.subheader("Simulation Inputs")
+    stl.subheader("Model Inputs")
     N0_input = stl.number_input("Initial Number of Muons (N0):", value=563)
     initial_v_ratio = stl.number_input("Initial Speed (as fraction of c):", value=0.9952, format="%.4f")
     altitude_m = stl.number_input("Travel Distance / Altitude (metres):", value=1907.0)
 
 # 4. Right Side: Results & Graphs (Stretches across remaining space)
 with col2:
-    stl.subheader("Simulation Results")
+    stl.subheader("Results of the model")
     
 
     if stl.button("Calculate Surviving Muons"): #if that button is pressed
