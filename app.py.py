@@ -117,6 +117,12 @@ with col2:
         stl.success(f"Distance the muons feel earth travelled towards them: {MUX[-1]:.1f}")
         fig, ax = plt.subplots(figsize=(8, 4))
 
+        exp_x = [0, alt]  # Mt. Washington (0m) and Sea Level (1907m)
+        exp_y = [563, 408]  # Measured counts
+        exp_yerr = [10, 9]  # Reported uncertainties
+
+        ax.errorbar(exp_x, exp_y, yerr=exp_yerr, fmt="ko", capsize=5, capthick=1.5, markersize=6,label="Real data",)
+
 # Plotting Earth-frame distance (X) vs. Surviving Muons (n0)
         ax.plot(X, n0, color="blue", linewidth=2, label="Relativistic model")
         ax.plot(X, n0clas, color ="red", linewidth=2, label="Classical model")
