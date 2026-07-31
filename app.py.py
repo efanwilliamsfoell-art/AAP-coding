@@ -25,6 +25,7 @@ with col2:
 
     if stl.button("Calculate Surviving Muons"): #if that button is pressed
         N0 = N0_input 
+        N0clas = N0_input
         alt= altitude_m 
         c = 2.99792*10**8 #speed of light in a vacuum (because it has to be before v0
         v0 = initial_v_ratio * c #variables on website
