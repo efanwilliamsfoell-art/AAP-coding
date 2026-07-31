@@ -98,7 +98,7 @@ with col2:
 
           #decay of muons in given time  
           Ntrel = N0*np.exp(-dt/(gammamean*mulifetime))
-          Nclas = N0clas*exp(-dt/mulifetime)
+          Nclas = N0clas*np.exp(-dt/mulifetime)
 
           #resetting cycle  
           E0 = E
