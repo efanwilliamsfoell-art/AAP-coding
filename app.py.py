@@ -127,9 +127,9 @@ with col2:
         ax.plot(X, n0, color="blue", linewidth=2, label="Relativistic model")
         ax.plot(X, n0clas, color ="red", linewidth=2, label="Classical model")
 
-        ax.set_xlabel("Earth Frame Distance (m)")
-        ax.set_ylabel("Number of Muons")
-        ax.set_title("Muon Decay Over Travelled Distance")
+        ax.set_xlabel("Earth frame distance (m)")
+        ax.set_ylabel("Number of muons")
+        ax.set_title("Muon decay over Earth-frame distance")
         ax.grid(True, linestyle="--", alpha=0.6)
         ax.legend()
 
