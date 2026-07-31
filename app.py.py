@@ -113,8 +113,8 @@ with col2:
           MUX.append(mux)
           n0clas.append(N0clas)
 
-        stl.success(f"Muons remaining at target distance: {n0[-1]:.1f}")
-        stl.success(f"Distance the muons feel earth travelled towards them: {MUX[-1]:.1f}")
+        stl.success(f"Muons remaining at target distance: {n0[-1]:1f}")
+        stl.success(f"Distance the muons feel earth travelled towards them (metres): {MUX[-1]:.1f}")
         fig, ax = plt.subplots(figsize=(8, 4))
 
         exp_x = [0, alt]  # Mt. Washington (0m) and Sea Level (1907m)
@@ -129,7 +129,7 @@ with col2:
 
         ax.set_xlabel("Earth Frame Distance (m)")
         ax.set_ylabel("Number of Muons")
-        ax.set_title("Muon Decay Over Traveled Distance")
+        ax.set_title("Muon Decay Over Travelled Distance")
         ax.grid(True, linestyle="--", alpha=0.6)
         ax.legend()
 
