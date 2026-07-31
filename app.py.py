@@ -66,6 +66,7 @@ with col2:
       
         while x < alt:
           M = gamma0*mrest #relativistic mass
+          h = alt - x
   
           #figuring out maximum energy lost in a single collision
           Bsquared = 1 - 1/(gamma0**2)
