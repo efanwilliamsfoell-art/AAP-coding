@@ -114,7 +114,7 @@ with col2:
           n0clas.append(N0clas)
 
         stl.success(f"Muons remaining at target distance: {n0[-1]:.0f}")
-        stl.success(f"Distance the muons feel earth travelled towards them (metres): {MUX[-1]:.1f}")
+        stl.success(f"Distance the muons feel earth travelled towards them: {MUX[-1]:.1f} m")
         fig, ax = plt.subplots(figsize=(8, 4))
 
         exp_x = [0, alt]  # Mt. Washington (0m) and Sea Level (1907m)
