@@ -20,7 +20,7 @@ with col1:
 
 # 4. Right Side: Results & Graphs (Stretches across remaining space)
 with col2:
-    stl.subheader("Results of the model")
+    stl.subheader("Model outputs")
     
 
     if stl.button("Calculate Surviving Muons"): #if that button is pressed
